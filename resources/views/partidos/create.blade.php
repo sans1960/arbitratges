@@ -11,16 +11,16 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                    <form action="{{route('partidos.store')}}" method="post">
                     @csrf
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div class="mt-4">
                             <x-label for="data" :value="__('Data')" />
 
                             <x-input id="data" class="block mt-1 w-full date"   name="data"  />
-                            @error('data')
+                            {{-- @error('data')
 
                             <p class="text-red-900">{{$message}}</p>
 
-                             @enderror
+                             @enderror --}}
                         </div>
                         <div class="mt-4">
                             <label class="block">
@@ -32,43 +32,69 @@
                                   @endforeach
                                 </select>
                               </label>
-                            @error('categoria_id')
+                            {{-- @error('categoria_id')
 
                             <p class="text-red-900">{{$message}}</p>
 
-                             @enderror
+                             @enderror --}}
                         </div>
+                        <div class="mt-4">
+                          <label class="block">
+                              <span class="text-gray-700">Camp</span>
+                              <select name="camp" class="form-select block w-full mt-1">
+                                <option>Camp</option>
+                                @foreach ($equipos as $equipo)
+                                <option value="{{$equipo->camp}}">{{$equipo->camp}}</option>
+                                @endforeach
+                              </select>
+                            </label>
+                          {{-- @error('data')
+
+                          <p class="text-red-900">{{$message}}</p>
+
+                           @enderror --}}
+                      </div>
                         <div class="mt-4">
                             <label class="block">
                                 <span class="text-gray-700">Equip Local</span>
-                                <select name="categoria_id" class="form-select block w-full mt-1">
+                                <select name="equipl[]" class="form-select block w-full mt-1">
                                   <option>Equipo local</option>
                                   @foreach ($equipos as $equipo)
                                   <option value="{{$equipo->id}}">{{$equipo->nom}}</option>
                                   @endforeach
                                 </select>
                               </label>
-                            @error('data')
+                            {{-- @error('data')
 
                             <p class="text-red-900">{{$message}}</p>
 
-                             @enderror
+                             @enderror --}}
                         </div>
                         <div class="mt-4">
-                            <label class="block">
-                                <span class="text-gray-700">Categoria</span>
-                                <select name="categoria_id" class="form-select block w-full mt-1">
-                                  <option>Categorias</option>
-                                  @foreach ($categorias as $categoria)
-                                  <option value="{{$categoria->id}}">{{$categoria->nom}}</option>
+                          <label class="block">
+                                <span class="text-gray-700">Equip Visitant</span>
+                                <select name="equipv[]" class="form-select block w-full mt-1">
+                                  <option>Equipo visitante</option>
+                                  @foreach ($equipos as $equipo)
+                                  <option value="{{$equipo->id}}">{{$equipo->nom}}</option>
                                   @endforeach
                                 </select>
                               </label>
-                            @error('data')
+                            {{-- @error('data')
 
                             <p class="text-red-900">{{$message}}</p>
 
-                             @enderror
+                             @enderror --}}
+                        </div>
+                        <div class="mt-4">
+                            <x-label for="resultat" :value="__('Resultat')" />
+
+                            <x-input id="resultat" class="block mt-1 w-full " type="text"   name="resultat"  />
+                            {{-- @error('data')
+
+                            <p class="text-red-900">{{$message}}</p>
+
+                             @enderror --}}
                         </div>
                     </div>
                     <x-button class="ml-4 mt-5">

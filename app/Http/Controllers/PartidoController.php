@@ -16,8 +16,8 @@ class PartidoController extends Controller
      */
     public function index()
     {
-
-        return view('partidos.index');
+        $partidos = Partido::all();
+        return view('partidos.index',compact('partidos'));
     }
 
     /**
@@ -40,7 +40,23 @@ class PartidoController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
+        $requested_data = $request->all();
+        $new_partit = new Partido();
+        $new_partit->data =$requested_data['data'];
+        $new_partit->categoria_id = $requested_data['categoria_id'];
+
+        $new_partit->camp =$requested_data['camp'];
+        $new_partit->resultat =$requested_data['resultat'];
+
+        $new_partit->save();
+        if(isset($requested_data['equipl'])){
+            $new_partit->equipo()->attach($requested_data['equipl']);
+        }
+        if(isset($requested_data['equipv'])){
+            $new_partit->equipo()->attach($requested_data['equipv']);
+        }
+        return redirect()->route('partidos.index')->with("success"," Partido Creado" );;
     }
 
     /**
