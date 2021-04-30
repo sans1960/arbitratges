@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\EquipoController;
 use App\Http\Controllers\PartidoController;
+use App\Http\Controllers\GolController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,4 @@ require __DIR__.'/auth.php';
 Route::resource('categorias', CategoriaController::class)->names('categorias');
 Route::resource('equipos', EquipoController::class)->names('equipos');
 Route::resource('partidos', PartidoController::class)->names('partidos');
+Route::resource('goles', GolController::class)->names('goles');
