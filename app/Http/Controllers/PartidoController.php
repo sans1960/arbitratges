@@ -50,12 +50,12 @@ class PartidoController extends Controller
         $new_partit->resultat =$requested_data['resultat'];
 
         $new_partit->save();
-        if(isset($requested_data['equipl'])){
-            $new_partit->equipo()->attach($requested_data['equipl']);
+        if(isset($requested_data['equipl']) && isset($requested_data['equipv'])){
+            $new_partit->equipo()->sync(array($requested_data['equipl'],$requested_data['equipv']));
         }
-        if(isset($requested_data['equipv'])){
-            $new_partit->equipo()->attach($requested_data['equipv']);
-        }
+        // if(isset($requested_data['equipv'])){
+        //     $new_partit->equipo()->sync($requested_data['equipv']);
+        // }
         return redirect()->route('partidos.index')->with("success"," Partido Creado" );;
     }
 

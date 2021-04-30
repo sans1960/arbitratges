@@ -11,6 +11,6 @@ class Equipo extends Model
     use HasFactory;
     protected $fillable=['nom','escut','camp'];
     public function partido(){
-        return $this->belongsToMany(Partido::class);
+        return $this->belongsToMany(Partido::class)->withPivot('id');
     }
 }

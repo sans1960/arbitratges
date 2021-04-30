@@ -27,8 +27,9 @@
                             <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
                                 <th class="py-3 px-6 text-center">Data</th>
                                 <th class="py-3 px-6 text-center">Categoria</th>
-                                <th class="py-3 px-6 text-center">Equipo Local</th>
-                                <th class="py-3 px-6 text-center">Equipo Visitante</th>
+                                <th class="py-3 px-6 text-center">Camp</th>
+                                <th class="py-3 px-6 text-center">Equipo  </th>
+                                <th class="py-3 px-6 text-center">Equipo</th>
                                 <th class="py-3 px-6 text-center">Resultado</th>
                                 <th class="py-3 px-6 text-center">Acciones</th>
                             </tr>
@@ -38,8 +39,13 @@
                                 <tr>
                                     <td class="py-3 px-6 text-center">{{$partido->data}}</td>
                                     <td class="py-3 px-6 text-center">{{$partido->categoria->nom}}</td>
-                                    <td class="py-3 px-6 text-center">{{$partido->equipo->first()->nom}}</td>
-                                    <td class="py-3 px-6 text-center">{{$partido->equipo->last()->nom}}</td>
+                                    <td class="py-3 px-6 text-center">{{$partido->camp}}</td>
+
+                                       @foreach ($partido->equipo as $equip)
+                                      <td class="py-3 px-6 text-center">{{$equip->nom}}</td>
+
+                                      @endforeach
+
                                     <td class="py-3 px-6 text-center">{{$partido->resultat}}</td>
                                     <td>
                                         <div class="flex flex-row justify-around items-center">

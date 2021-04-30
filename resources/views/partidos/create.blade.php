@@ -57,7 +57,7 @@
                         <div class="mt-4">
                             <label class="block">
                                 <span class="text-gray-700">Equip Local</span>
-                                <select name="equipl[]" class="form-select block w-full mt-1">
+                                <select name="equipl" class="form-select block w-full mt-1">
                                   <option>Equipo local</option>
                                   @foreach ($equipos as $equipo)
                                   <option value="{{$equipo->id}}">{{$equipo->nom}}</option>
@@ -73,7 +73,7 @@
                         <div class="mt-4">
                           <label class="block">
                                 <span class="text-gray-700">Equip Visitant</span>
-                                <select name="equipv[]" class="form-select block w-full mt-1">
+                                <select name="equipv" class="form-select block w-full mt-1">
                                   <option>Equipo visitante</option>
                                   @foreach ($equipos as $equipo)
                                   <option value="{{$equipo->id}}">{{$equipo->nom}}</option>

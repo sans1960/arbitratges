@@ -15,6 +15,6 @@ class Partido extends Model
         return $this->belongsTo(Categoria::class);
     }
     public function equipo(){
-        return $this->belongsToMany(Equipo::class);
+        return $this->belongsToMany(Equipo::class)->withPivot('id');
     }
 }
