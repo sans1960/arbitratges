@@ -27,6 +27,9 @@
                     <x-nav-link :href="route('goles.index')" :active="request()->routeIs('goles.index')">
                         {{ __('Goles') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('tarjetas.index')" :active="request()->routeIs('tarjetas.index')">
+                        {{ __('Tarjetas') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -89,6 +92,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('goles.index')" :active="request()->routeIs('goles.index')">
                 {{ __('Goles') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('tarjetas.index')" :active="request()->routeIs('tarjetas.index')">
+                {{ __('Tarjetas') }}
             </x-responsive-nav-link>
         </div>
 

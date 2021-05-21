@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Gol;
-use App\Models\Partido;
-use App\Models\Categoria;
-use App\Models\Equipo;
+use App\Models\Tarjeta;
 use Illuminate\Http\Request;
 
-class GolController extends Controller
+class TarjetaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +14,7 @@ class GolController extends Controller
      */
     public function index()
     {
-        $goles = Gol::all();
-        return view('goles.index',compact('goles'));
+        return view('tarjetas.index');
     }
 
     /**
@@ -28,10 +24,7 @@ class GolController extends Controller
      */
     public function create()
     {
-        $partidos = Partido::all();
-        $categorias = Categoria::all();
-        $equipos = Equipo::all();
-        return view('goles.create',compact('partidos','categorias','equipos'));
+        return view('tarjetas.create');
     }
 
     /**
@@ -42,40 +35,39 @@ class GolController extends Controller
      */
     public function store(Request $request)
     {
-        Gol::create($request->all());
-        return redirect()->route('goles.index')->with("success"," Gol Creado" );
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Gol  $gol
+     * @param  \App\Models\Tarjeta  $tarjeta
      * @return \Illuminate\Http\Response
      */
-    public function show(Gol $gol)
+    public function show(Tarjeta $tarjeta)
     {
-        return view('goles.show');
+        return view('tarjetas.show');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Gol  $gol
+     * @param  \App\Models\Tarjeta  $tarjeta
      * @return \Illuminate\Http\Response
      */
-    public function edit(Gol $gol)
+    public function edit(Tarjeta $tarjeta)
     {
-        return view('goles.edit');
+        return view('tarjetas.edit');
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Gol  $gol
+     * @param  \App\Models\Tarjeta  $tarjeta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Gol $gol)
+    public function update(Request $request, Tarjeta $tarjeta)
     {
         //
     }
@@ -83,10 +75,10 @@ class GolController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Gol  $gol
+     * @param  \App\Models\Tarjeta  $tarjeta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Gol $gol)
+    public function destroy(Tarjeta $tarjeta)
     {
         //
     }
