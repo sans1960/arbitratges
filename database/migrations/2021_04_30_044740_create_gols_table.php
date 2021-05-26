@@ -17,12 +17,13 @@ class CreateGolsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('partido_id');
             $table->unsignedBigInteger('categoria_id');
-            $table->string('equipo');
+            $table->unsignedBigInteger('equipo_id');
             $table->string('jugador');
             $table->string('minuto');
             $table->string('marcador');
             $table->foreign('partido_id')->references('id')->on('partidos')->onDelete('cascade');
             $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
+            $table->foreign('equipo_id')->references('id')->on('equipos')->onDelete('cascade');
             $table->timestamps();
         });
     }
